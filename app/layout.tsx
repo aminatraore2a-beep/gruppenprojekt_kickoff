@@ -16,6 +16,7 @@ export default function RootLayout({
           <nav className="mt-2 flex gap-4">
             <Link href="/">Start</Link>
             <Link href="/rooms">Räume</Link>
+            <Link href="/rooms/new">Raum hinzufügen</Link>
           </nav>
         </header>
 

@@ -1,23 +1,27 @@
+import { createRoom } from "@/app/actions/room_actions";
+
 export default function NewRoomPage() {
   return (
-    <div>
-      <h1>Neuen Raum anlegen</h1>
+    <form action={createRoom} className="flex flex-col gap-4">
+      <input
+        name="name"
+        placeholder="Raumname"
+      />
 
-      <form>
-        <input
-          type="text"
-          placeholder="Raumname"
-        />
+      <input
+        name="capacity"
+        type="number"
+        placeholder="Kapazität"
+      />
 
-        <input
-          type="number"
-          placeholder="Kapazität"
-        />
+      <textarea
+        name="description"
+        placeholder="Beschreibung"
+      />
 
-        <button type="submit">
-          Speichern
-        </button>
-      </form>
-    </div>
+      <button type="submit">
+        Raum erstellen
+      </button>
+    </form>
   );
 }
