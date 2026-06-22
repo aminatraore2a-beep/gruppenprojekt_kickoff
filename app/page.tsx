@@ -1,33 +1,23 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import { RoomCard } from "@/components/room_card";
 
-export default async function RoomsPage() {
-  const rooms = await prisma.room.findMany();
-
+export default function Home() {
   return (
-    <div>
-      <div className="flex justify-between items-center mb-4">
-        <h1>Räume</h1>
+    <main className="p-10 flex flex-col gap-6">
+      <h1 className="text-3xl font-bold">Raumbuchungssystem</h1>
 
-        <Link
-          href="/rooms/new"
-          className="border rounded px-4 py-2"
-        >
-          Raum hinzufügen
+      <p>Wähle einen Bereich:</p>
+
+      <div className="flex flex-col gap-3">
+        <Link className="text-blue-600 underline" href="/rooms">
+          🏢 Räume verwalten
+        </Link>
+        <Link className="text-blue-600 underline" href="/bookings">
+          📅 Buchungen
+        </Link>
+        <Link className="text-blue-600 underline" href="/overview">
+          📊 Übersicht
         </Link>
       </div>
-
-      <div className="grid gap-4">
-        {rooms.map((room) => (
-          <RoomCard
-            key={room.id}
-            name={room.name}
-            capacity={room.capacity}
-            description={room.description}
-          />
-        ))}
-      </div>
-    </div>
+    </main>
   );
 }
